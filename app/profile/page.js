@@ -10,6 +10,7 @@ export default function ProfilePage() {
     github: "https://github.com/tpfls6",
     blog: "https://tpflss.tistory.com/",
     notion: "",
+    school: "동양미래대 컴퓨터소프트웨어공학과"
   };
 
   // 강점: 아이콘은 키워드 앞 글자 (S/L/T/O)
@@ -92,6 +93,12 @@ export default function ProfilePage() {
                   <div className="profile-info-row">
                     <dt>지역</dt>
                     <dd>{profile.address}</dd>
+                  </div>
+                )}
+                {profile.school && (
+                  <div className="profile-info-row">
+                    <dt>학력</dt>
+                    <dd>{profile.school}</dd>
                   </div>
                 )}
               </dl>
