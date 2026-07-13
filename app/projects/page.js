@@ -27,7 +27,7 @@ export default function ProjectsPage() {
     <main className="page">
       <section className="section">
         <div className="container">
-          <header className="section-header">
+          <header className="section-header" data-reveal>
             <h2 className="section-title">프로젝트</h2>
             <p className="section-subtitle">
               학교에서 진행한 프로젝트와 대외 활동 프로젝트를 왼쪽 메뉴에서 선택해 볼 수 있습니다.

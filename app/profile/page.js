@@ -13,63 +13,92 @@ export default function ProfilePage() {
     school: "동양미래대 컴퓨터소프트웨어공학과"
   };
 
-  // 강점: 아이콘은 키워드 앞 글자 (S/L/T/O)
+  // 기술 스택: 입사지원서 기술스택 표 구조를 그대로 반영
+  const techStackGroups = [
+    {
+      title: "Programming Languages",
+      items: ["JavaScript", "TypeScript", "Java"],
+    },
+    {
+      title: "Framework / Library",
+      items: ["React", "Next.js", "Spring Boot", "MUI", "Axios", "Bootstrap"],
+    },
+    {
+      title: "Server / Database",
+      items: ["MySQL", "Redis", "REST API"],
+    },
+    {
+      title: "Tooling / DevOps",
+      items: ["Git", "GitHub", "Docker", "Swagger", "Postman", "Notion"],
+    },
+    {
+      title: "Environment",
+      items: ["IntelliJ IDEA", "VS Code", "macOS", "Windows"],
+    },
+    {
+      title: "Design & Collaboration",
+      items: [
+        "Figma",
+        "PPT",
+        "회의록 작성",
+        "일정 관리",
+        "요구사항 정리",
+        "QA 테스트",
+        "팀 프로젝트 리딩",
+      ],
+    },
+  ];
+
+  // 핵심역량: 입사지원서 핵심역량 4가지를 그대로 반영
   const abilities = [
     {
       title: "구조화·정리 능력",
       icon: <FiLayers />,
       description:
-        "노션, PPT, 코드 주석 등을 활용해 개념·오류·프로젝트 흐름을 체계적으로 정리합니다.",
+        "노션, PPT, 회의록 등으로 요구사항과 프로젝트 흐름을 체계적으로 정리하고, 컴포넌트 기반으로 화면을 구조화합니다.",
     },
     {
-      title: "빠른 흡수력과 학습 지속력",
+      title: "빠른 학습력과 실전 적용력",
       icon: <FiZap />,
       description:
-        "React, Next, AWS 등 새로운 기술을 빠르게 익히고 프로젝트에 바로 적용합니다.",
+        "React, Next.js, Spring Boot, AWS 등 새로운 기술을 짧은 시간 안에 학습해 실제 프로젝트에 바로 적용합니다.",
     },
     {
-      title: "협업 커뮤니케이션",
+      title: "팀장 경험과 협업 커뮤니케이션",
       icon: <FiUsers />,
       description:
-        "요구사항 정리, 회의 내용 정리, 질문 정리 등을 통해 팀이 같은 방향을 보도록 돕습니다.",
+        "팀장으로서 역할 분담, 일정 관리, 회의록·보고서 작성을 주도하며 팀이 같은 방향을 보도록 조율합니다.",
     },
     {
-      title: "끝까지 밀고 가는 실행력",
+      title: "끝까지 완성하는 실행력과 QA",
       icon: <FiFlag />,
       description:
-        "대회, 동아리, 수업 프로젝트를 동시에 진행하며 결과물을 끝까지 완성합니다.",
+        "화면 동작·API 응답·사용자 흐름을 직접 점검하는 QA까지 책임지며, 여러 프로젝트를 동시에 완성도 있게 마무리합니다.",
     },
-  ];
-
-  // 스킬 퍼센트 바 (주로 써온 언어/스택)
-  const skills = [
-    { name: "JavaScript / TypeScript", level: 80 },
-    { name: "React / Next.js", level: 78 },
-    { name: "SQL (MySQL)", level: 70 },
-    { name: "Java (Spring 기초)", level: 60 },
-    { name: "Python / 데이터 처리", level: 55 },
   ];
 
   return (
     <main className="page">
       <section className="section">
         <div className="container">
-          <header className="section-header">
+          <header className="section-header" data-reveal>
             <h2 className="section-title">내 프로필</h2>
             <p className="section-subtitle">
-              기본 정보와 개발자로서의 강점, 그리고 사용하는 기술 스택을 정리한
-              페이지입니다.
+              기본 정보와 개발자로서의 핵심역량, 그리고 실제 사용해 본 기술
+              스택을 정리한 페이지입니다.
             </p>
             <p className="profile-intro">
-              프로젝트를 끝까지 밀어붙이는 실행력과, 정리·문서화를 좋아하는
-              타입의 프론트엔드 개발자입니다. 새로운 기술을 빠르게 익혀서 실제
-              서비스에 적용해 보는 경험을 계속 쌓고 있습니다.
+              화면을 구현하는 것에서 그치지 않고, 문제를 정의하고 API·데이터
+              흐름을 설계하며 QA로 완성도를 높이는 것까지 책임지는
+              프론트엔드 개발자입니다. 팀장으로서 역할 분담과 문서화를
+              맡아온 경험을 바탕으로, 백엔드 구조에 대한 이해를 넓혀가고
+              있습니다.
             </p>
           </header>
 
           <div className="profile-layout">
             {/* 왼쪽: 사진 + 기본 정보 */}
-            <div className="profile-left">
+            <div className="profile-left" data-reveal>
               <div className="profile-photo-box">
                 <span className="profile-photo-text">Photo</span>
               </div>
@@ -104,10 +133,10 @@ export default function ProfilePage() {
               </dl>
             </div>
 
-            {/* 오른쪽: 링크 → 스킬바 → 강점 */}
+            {/* 오른쪽: 링크 → 기술스택 → 핵심역량 */}
             <div className="profile-right">
               {/* 1) GitHub / Blog / Notion 링크 */}
-              <div className="profile-links">
+              <div className="profile-links" data-reveal>
                 {profile.github && (
                   <a
                     href={profile.github}
@@ -154,38 +183,38 @@ export default function ProfilePage() {
                 )}
               </div>
 
-              {/* 2) 스킬 퍼센트 바 */}
-              <section className="profile-skills">
-                <h3 className="profile-skills-title">사용 언어 · 기술 스택</h3>
+              {/* 2) 기술 스택 (구분별 정리) */}
+              <section className="profile-skills" data-reveal>
+                <h3 className="profile-skills-title">기술 스택</h3>
                 <p className="profile-skills-sub">
-                  프로젝트에서 실제로 사용해 본 언어와 프레임워크 기준으로,
-                  스스로 느끼는 숙련도를 퍼센트로 표현했습니다.
+                  프로젝트에서 실제로 사용해 본 언어·프레임워크·협업 도구를
+                  구분별로 정리했습니다.
                 </p>
 
-                <div className="skill-list">
-                  {skills.map((skill) => (
-                    <div key={skill.name} className="skill-row">
-                      <div className="skill-header">
-                        <span>{skill.name}</span>
-                        <span>{skill.level}%</span>
-                      </div>
-                      <div className="skill-bar">
-                        <div
-                          className="skill-bar-fill"
-                          style={{ width: `${skill.level}%` }}
-                        />
+                <div className="techstack-groups">
+                  {techStackGroups.map((group) => (
+                    <div key={group.title} className="techstack-group">
+                      <span className="techstack-group-title">
+                        {group.title}
+                      </span>
+                      <div className="project-tech-list">
+                        {group.items.map((item) => (
+                          <span key={item} className="chip">
+                            {item}
+                          </span>
+                        ))}
                       </div>
                     </div>
                   ))}
                 </div>
               </section>
 
-              {/* 3) 강점 카드 리스트 */}
-              <section className="profile-skills">
-                <h3 className="profile-skills-title">강점</h3>
+              {/* 3) 핵심역량 카드 리스트 */}
+              <section className="profile-skills" data-reveal>
+                <h3 className="profile-skills-title">핵심역량</h3>
                 <p className="profile-skills-sub">
-                  함께 일할 때 강하게 드러나는 성향과, 실제 프로젝트에서 보여준
-                  행동을 중심으로 정리했습니다.
+                  함께 일할 때 강하게 드러나는 성향과, 실제 프로젝트에서
+                  보여준 행동을 중심으로 정리했습니다.
                 </p>
 
                 <div className="ability-list">
@@ -197,7 +226,6 @@ export default function ProfilePage() {
                       <div>
                         <div className="ability-header">
                           <h3 className="ability-title">{item.title}</h3>
-                          <span className="ability-tag">{item.keyword}</span>
                         </div>
                         <p className="ability-desc">{item.description}</p>
                       </div>

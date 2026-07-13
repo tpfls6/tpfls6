@@ -1,15 +1,6 @@
 // data/certificates.js
 
 export const certificates = [
-  {
-    id: 'sqld',
-    name: 'SQLD (SQL 개발자)',
-    issuer: '한국데이터산업진흥원',
-    date: '취득 예정',
-    description:
-      '데이터 모델링, SQL 작성 및 튜닝 등 데이터베이스 전반에 대한 이해를 목표로 준비 중입니다.',
-  },
-
   // 🔹 ITQ 3종
   {
     id: 'itq-hangul',

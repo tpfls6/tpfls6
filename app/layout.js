@@ -1,6 +1,7 @@
 // app/layout.js
 import './globals.css';
 import Link from 'next/link';
+import ScrollReveal from '../components/ScrollReveal';
 
 export const metadata = {
   title: '박세린 포트폴리오',
@@ -11,6 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <body>
+        <ScrollReveal />
         <header className="header">
           <div className="header-inner">
             <div>
@@ -29,7 +31,7 @@ export default function RootLayout({ children }) {
                 프로젝트
               </Link>
               <Link href="/certificates" className="nav-link">
-                자격증
+                자격증·이력
               </Link>
             </nav>
           </div>

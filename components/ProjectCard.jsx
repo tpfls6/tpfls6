@@ -1,15 +1,17 @@
 // components/ProjectCard.jsx
-import Link from "next/link";
 
 export default function ProjectCard({ project }) {
   const {
-    id,
     title,
     period,
+    status,
+    team,
     role,
     techStack,
-    summary,
-    description,
+    problem,
+    solution,
+    result,
+    retrospect,
     githubUrl,
     notionUrl,
     demoUrl,
@@ -21,13 +23,21 @@ export default function ProjectCard({ project }) {
   return (
     <article
       className={`project-card ${highlight ? "project-card--highlight" : ""}`}
+      data-reveal
     >
       <div className="project-card-header">
         <h3 className="project-title">{title}</h3>
-        {award && <span className="badge badge--award">{award}</span>}
+        <div className="project-badges">
+          {status && <span className="badge badge--status">{status}</span>}
+          {award && <span className="badge badge--award">{award}</span>}
+        </div>
       </div>
 
-      <p className="project-period">{period}</p>
+      <div className="project-meta">
+        <span className="project-period">{period}</span>
+        {team && <span className="project-meta-dot" />}
+        {team && <span className="project-team">{team}</span>}
+      </div>
       <p className="project-role">{role}</p>
 
       <div className="project-tech-list">
@@ -38,8 +48,32 @@ export default function ProjectCard({ project }) {
         ))}
       </div>
 
-      <p className="project-summary">{summary}</p>
-      <p className="project-description">{description}</p>
+      <div className="project-story">
+        {problem && (
+          <div className="project-story-row">
+            <span className="project-story-label">문제</span>
+            <p className="project-story-text">{problem}</p>
+          </div>
+        )}
+        {solution && (
+          <div className="project-story-row">
+            <span className="project-story-label">해결 과정</span>
+            <p className="project-story-text">{solution}</p>
+          </div>
+        )}
+        {result && (
+          <div className="project-story-row">
+            <span className="project-story-label">결과</span>
+            <p className="project-story-text">{result}</p>
+          </div>
+        )}
+        {retrospect && (
+          <div className="project-story-row">
+            <span className="project-story-label">회고</span>
+            <p className="project-story-text">{retrospect}</p>
+          </div>
+        )}
+      </div>
 
       <div className="project-links">
         {githubUrl && (

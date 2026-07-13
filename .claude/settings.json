@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(chromium-cli --help)",
+      "Bash(node -e \"require.resolve\\('playwright'\\)\")",
+      "Bash(npx --yes playwright --version)",
+      "Bash(npx --yes playwright install --dry-run chromium)",
+      "Bash(ls \"C:\\\\Users\\\\세린\\\\AppData\\\\Local\\\\ms-playwright\" 2>&1)",
+      "Read(//c/Users/세린/AppData/Local/**)",
+      "Bash(timeout 90 npx --yes playwright install chromium)",
+      "Bash(npx --yes playwright --help)",
+      "Bash(npx --yes playwright screenshot --viewport-size=1280,900 --full-page --wait-for-timeout=1200 http://localhost:3000/ 'C:\\\\Users\\\\세린\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users----Github-tpfls6\\\\8b0d1f01-8fc4-432b-8b0e-8522b6da1daa\\\\scratchpad/home.png')",
+      "Bash(npx --yes playwright screenshot --viewport-size=1280,900 --full-page --wait-for-timeout=1200 http://localhost:3000/profile 'C:\\\\Users\\\\세린\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users----Github-tpfls6\\\\8b0d1f01-8fc4-432b-8b0e-8522b6da1daa\\\\scratchpad/profile.png')",
+      "Bash(npx --yes playwright screenshot --viewport-size=1280,900 --full-page --wait-for-timeout=1200 http://localhost:3000/projects 'C:\\\\Users\\\\세린\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users----Github-tpfls6\\\\8b0d1f01-8fc4-432b-8b0e-8522b6da1daa\\\\scratchpad/projects.png')",
+      "Bash(npx --yes playwright screenshot --viewport-size=1280,900 --full-page --wait-for-timeout=1200 http://localhost:3000/certificates 'C:\\\\Users\\\\세린\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users----Github-tpfls6\\\\8b0d1f01-8fc4-432b-8b0e-8522b6da1daa\\\\scratchpad/certificates.png')"
+    ]
+  }
+}
