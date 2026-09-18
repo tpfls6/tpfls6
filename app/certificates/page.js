@@ -9,7 +9,7 @@ export default function CertificatesPage() {
       <section className="section">
         <div className="container">
           <header className="section-header" data-reveal>
-            <h2 className="section-title">자격증 &amp; 이력</h2>
+            <h2 className="section-title-sticky">CERTIFICATES &amp; HISTORY</h2>
             <p className="section-subtitle">
               지금까지 취득한 자격증과 학력, 대내외활동, 교육 이수 내역을 정리했습니다.
             </p>

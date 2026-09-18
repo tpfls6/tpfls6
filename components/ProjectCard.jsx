@@ -1,125 +1,72 @@
 // components/ProjectCard.jsx
+'use client';
+
+import Link from 'next/link';
+import { useRole } from './RoleProvider';
+
+const REPO_LABELS = {
+  github: 'GitHub',
+  frontendRepo: 'Frontend Repository',
+  backendRepo: 'Backend Repository',
+  orgRepo: 'Organization Repository',
+};
 
 export default function ProjectCard({ project }) {
-  const {
-    title,
-    period,
-    status,
-    team,
-    role,
-    techStack,
-    problem,
-    solution,
-    result,
-    retrospect,
-    githubUrl,
-    notionUrl,
-    demoUrl,
-    jiraUrl,
-    award,
-    highlight,
-  } = project;
+  const { role } = useRole();
+  const { title, tagline, period, role: teamRole, techStack, links, roleContent } = project;
+
+  const emphasis = role !== 'all' ? roleContent?.[role] : null;
+  const description = emphasis?.summary || tagline;
+  const repoEntries = Object.entries(links || {}).filter(
+    ([key, url]) => key !== 'demo' && url
+  );
 
   return (
-    <article
-      className={`project-card ${highlight ? "project-card--highlight" : ""}`}
-      data-reveal
-    >
-      <div className="project-card-header">
-        <h3 className="project-title">{title}</h3>
-        <div className="project-badges">
-          {status && <span className="badge badge--status">{status}</span>}
-          {award && <span className="badge badge--award">{award}</span>}
+    <article className={`project-card project-card--${role}`} data-reveal>
+      <div className="project-card-body">
+        <div className="project-card-heading">
+          <div>
+            <h3 className="project-card-title">{title}</h3>
+            <p className="project-card-role">{teamRole}</p>
+          </div>
+          <span className="project-card-period">{period}</span>
         </div>
-      </div>
 
-      <div className="project-meta">
-        <span className="project-period">{period}</span>
-        {team && <span className="project-meta-dot" />}
-        {team && <span className="project-team">{team}</span>}
-      </div>
-      <p className="project-role">{role}</p>
+        <p className="project-card-desc">{description}</p>
 
-      <div className="project-tech-list">
-        {techStack.map((tech) => (
-          <span key={tech} className="chip">
-            {tech}
-          </span>
-        ))}
-      </div>
+        {emphasis?.points?.length > 0 && (
+          <ul className="project-card-points">
+            {emphasis.points.slice(0, 3).map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        )}
 
-      <div className="project-story">
-        {problem && (
-          <div className="project-story-row">
-            <span className="project-story-label">문제</span>
-            <p className="project-story-text">{problem}</p>
-          </div>
-        )}
-        {solution && (
-          <div className="project-story-row">
-            <span className="project-story-label">해결 과정</span>
-            <p className="project-story-text">{solution}</p>
-          </div>
-        )}
-        {result && (
-          <div className="project-story-row">
-            <span className="project-story-label">결과</span>
-            <p className="project-story-text">{result}</p>
-          </div>
-        )}
-        {retrospect && (
-          <div className="project-story-row">
-            <span className="project-story-label">회고</span>
-            <p className="project-story-text">{retrospect}</p>
-          </div>
-        )}
-      </div>
+        <div className="project-tech-list">
+          {techStack.map((tech) => (
+            <span key={tech} className="chip">
+              {tech}
+            </span>
+          ))}
+        </div>
 
-      <div className="project-links">
-        {githubUrl && (
-          <a
-            href={githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="link-button"
-            onClick={(e) => e.stopPropagation()}
-          >
-            GitHub
-          </a>
-        )}
-        {notionUrl && (
-          <a
-            href={notionUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="link-button link-button--ghost"
-            onClick={(e) => e.stopPropagation()}
-          >
-            Notion
-          </a>
-        )}
-        {demoUrl && (
-          <a
-            href={demoUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="link-button link-button--ghost"
-            onClick={(e) => e.stopPropagation()}
-          >
-            Demo
-          </a>
-        )}
-        {jiraUrl && (
-          <a
-            href={jiraUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="link-button link-button--ghost"
-            onClick={(e) => e.stopPropagation()}
-          >
-            Jira
-          </a>
-        )}
+        <div className="project-card-footer">
+          <Link href={`/projects/${project.slug}`} className="project-detail-link">
+            상세보기 →
+          </Link>
+          {role === 'developer' &&
+            repoEntries.map(([key, url]) => (
+              <a
+                key={key}
+                href={url}
+                target="_blank"
+                rel="noreferrer"
+                className="project-repo-link"
+              >
+                {REPO_LABELS[key] || key} →
+              </a>
+            ))}
+        </div>
       </div>
     </article>
   );

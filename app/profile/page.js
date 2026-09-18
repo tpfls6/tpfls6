@@ -13,33 +13,29 @@ export default function ProfilePage() {
     school: "동양미래대 컴퓨터소프트웨어공학과"
   };
 
-  // 기술 스택: 입사지원서 기술스택 표 구조를 그대로 반영
+  // 기술 스택: Frontend / Backend / Database / Infrastructure / Product로 구분
   const techStackGroups = [
     {
-      title: "Programming Languages",
-      items: ["JavaScript", "TypeScript", "Java"],
+      title: "Frontend",
+      items: ["JavaScript", "TypeScript", "React", "Next.js", "MUI", "Axios", "Bootstrap"],
     },
     {
-      title: "Framework / Library",
-      items: ["React", "Next.js", "Spring Boot", "MUI", "Axios", "Bootstrap"],
+      title: "Backend",
+      items: ["Java", "Spring Boot", "Python", "REST API"],
     },
     {
-      title: "Server / Database",
-      items: ["MySQL", "Redis", "REST API"],
+      title: "Database",
+      items: ["MySQL", "Redis"],
     },
     {
-      title: "Tooling / DevOps",
-      items: ["Git", "GitHub", "Docker", "Swagger", "Postman", "Notion"],
+      title: "Infrastructure",
+      items: ["Git", "GitHub", "Docker", "AWS EC2", "Vercel", "Swagger", "Postman"],
     },
     {
-      title: "Environment",
-      items: ["IntelliJ IDEA", "VS Code", "macOS", "Windows"],
-    },
-    {
-      title: "Design & Collaboration",
+      title: "Product",
       items: [
         "Figma",
-        "PPT",
+        "Notion",
         "회의록 작성",
         "일정 관리",
         "요구사항 정리",
@@ -82,17 +78,15 @@ export default function ProfilePage() {
       <section className="section">
         <div className="container">
           <header className="section-header" data-reveal>
-            <h2 className="section-title">내 프로필</h2>
+            <h2 className="section-title-sticky">ABOUT</h2>
             <p className="section-subtitle">
-              기본 정보와 개발자로서의 핵심역량, 그리고 실제 사용해 본 기술
-              스택을 정리한 페이지입니다.
+              기본 정보와 핵심역량, 실제 사용해 본 기술 스택을 정리한 페이지입니다.
             </p>
             <p className="profile-intro">
-              화면을 구현하는 것에서 그치지 않고, 문제를 정의하고 API·데이터
-              흐름을 설계하며 QA로 완성도를 높이는 것까지 책임지는
-              프론트엔드 개발자입니다. 팀장으로서 역할 분담과 문서화를
-              맡아온 경험을 바탕으로, 백엔드 구조에 대한 이해를 넓혀가고
-              있습니다.
+              문제를 정의하고 구조화하는 기획, 실제로 동작하는 화면과 API를 만드는 개발,
+              그리고 사용자 관점에서 결과를 검증하는 QA를 하나의 흐름으로 연결하는 사람입니다.
+              팀장으로서 역할 분담과 문서화를 맡아온 경험을 바탕으로, 필요할 때는 프로젝트
+              전체 방향을 리딩합니다.
             </p>
           </header>
 
