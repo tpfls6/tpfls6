@@ -1,35 +1,56 @@
-// components/Hero.jsx
-'use client';
-
-import RoleSwitcher from './RoleSwitcher';
-import { useRole } from './RoleProvider';
-
-const ROLE_LINE = {
-  all: 'Planning · Development · QA · Product',
-  developer: 'Frontend · Backend · API · DB · Architecture',
-  planner: '문제 정의 · 사용자 시나리오 · IA · MVP 설계',
-  pm: '팀 리딩 · 일정 관리 · 의사결정 · 협업',
-  qa: '사용자 흐름 테스트 · 예외 케이스 검증 · 재검증',
-};
+import { heroCopy, profile } from '../data/site';
 
 export default function Hero() {
-  const { role } = useRole();
-
   return (
-    <section className={`hero hero--${role}`} data-reveal>
-      <div className="container hero-inner">
-        <RoleSwitcher className="hero-role-switcher" />
-        <p className="hero-eyebrow">SERIN PARK</p>
-        <h1 className="hero-title">
-          복잡한 문제를 정리하고,
-          <br />
-          사용자의 흐름을 끝까지 확인합니다.
-        </h1>
-        <p className="hero-line">{ROLE_LINE[role]}</p>
-        <p className="hero-desc">
-          기능을 만드는 것에서 끝내지 않습니다. 사용자가 실제로 어떤 상황에서 이 기능을 사용하게 될지
-          생각하고, 여러 경우의 수를 테스트하며 서비스의 완성도를 높이는 일을 중요하게 생각합니다.
-        </p>
+    <section className="cover" aria-label="소개">
+      <svg className="cover-wash" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <filter id="cover-bleed" x="-35%" y="-35%" width="170%" height="170%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.018 0.028" numOctaves="3" seed="7" result="n" />
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="28" xChannelSelector="R" yChannelSelector="G" />
+            <feGaussianBlur stdDeviation="8" />
+          </filter>
+        </defs>
+        <g filter="url(#cover-bleed)" fill="#8fb7de">
+          <circle cx="36" cy="28" r="78" opacity="0.55" />
+          <circle cx="108" cy="8" r="42" opacity="0.28" />
+          <circle cx="8" cy="92" r="48" opacity="0.32" />
+        </g>
+        <g filter="url(#cover-bleed)" fill="#c9b6e4">
+          <ellipse cx="318" cy="448" rx="72" ry="46" opacity="0.28" />
+        </g>
+        <g filter="url(#cover-bleed)" fill="#efb7a3">
+          <circle cx="1398" cy="620" r="88" opacity="0.5" />
+          <circle cx="1330" cy="710" r="54" opacity="0.28" />
+        </g>
+        <g filter="url(#cover-bleed)" fill="#9ed4c2">
+          <circle cx="80" cy="820" r="56" opacity="0.28" />
+        </g>
+      </svg>
+
+      <div className="cover-inner">
+        <div className="cover-copy">
+          <p className="cover-identity">
+            <span className="cover-name">{profile.name}</span>
+            <span className="cover-role">{heroCopy.role}</span>
+          </p>
+          <h1 className="cover-title">
+            {heroCopy.lines.map((line) => (
+              <span key={line}>{line}</span>
+            ))}
+          </h1>
+          <p className="cover-desc">
+            {heroCopy.intro[0]}
+            <br />
+            {heroCopy.intro[1]}
+          </p>
+        </div>
+
+        <figure className="cover-photo">
+          <div className="cover-photo-frame">
+            <span>PHOTO</span>
+          </div>
+        </figure>
       </div>
     </section>
   );

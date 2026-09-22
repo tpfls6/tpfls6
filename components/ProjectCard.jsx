@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useRole } from './RoleProvider';
+import { useView } from './RoleProvider';
 
 const REPO_LABELS = {
   github: 'GitHub',
@@ -12,17 +12,14 @@ const REPO_LABELS = {
 };
 
 export default function ProjectCard({ project }) {
-  const { role } = useRole();
+  const { view } = useView();
   const { title, tagline, period, role: teamRole, techStack, links, roleContent } = project;
-
-  const emphasis = role !== 'all' ? roleContent?.[role] : null;
+  const emphasis = view ? roleContent?.[view] : null;
   const description = emphasis?.summary || tagline;
-  const repoEntries = Object.entries(links || {}).filter(
-    ([key, url]) => key !== 'demo' && url
-  );
+  const repoEntries = Object.entries(links || {}).filter(([key, url]) => key !== 'demo' && url);
 
   return (
-    <article className={`project-card project-card--${role}`} data-reveal>
+    <article className={`project-card project-card--${view || 'neutral'}`} data-reveal>
       <div className="project-card-body">
         <div className="project-card-heading">
           <div>
@@ -43,7 +40,7 @@ export default function ProjectCard({ project }) {
         )}
 
         <div className="project-tech-list">
-          {techStack.map((tech) => (
+          {techStack.slice(0, 6).map((tech) => (
             <span key={tech} className="chip">
               {tech}
             </span>
@@ -54,15 +51,9 @@ export default function ProjectCard({ project }) {
           <Link href={`/projects/${project.slug}`} className="project-detail-link">
             상세보기 →
           </Link>
-          {role === 'developer' &&
+          {view === 'developer' &&
             repoEntries.map(([key, url]) => (
-              <a
-                key={key}
-                href={url}
-                target="_blank"
-                rel="noreferrer"
-                className="project-repo-link"
-              >
+              <a key={key} href={url} target="_blank" rel="noreferrer" className="project-repo-link">
                 {REPO_LABELS[key] || key} →
               </a>
             ))}

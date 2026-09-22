@@ -17,19 +17,19 @@ export const education = [
   },
 ];
 
-// 최신순으로 정리
 export const activities = [
-  {
-    period: "2025.03 - 2025.08",
-    category: "학과대표활동",
-    title: "반대표",
-    description: "공지 전달, 강의실 관리",
-  },
   {
     period: "2024.03 - 2026.11",
     category: "동아리",
     title: "전공동아리(EL)",
-    description: "전공 관련 프로젝트 및 스터디 참여, 팀 프로젝트 기획·개발 활동",
+    description: "전공 프로젝트 · 스터디 · 팀 프로젝트 기획 및 개발",
+    featured: true,
+  },
+  {
+    period: "2024.07 - 2025.08",
+    category: "학교 활동",
+    title: "학교 활동",
+    lines: ["반대표 · 공지 전달, 강의실 관리", "도서관 사무보조 · 도서관 관리"],
   },
   {
     period: "2024.05 - 2024.11",
@@ -38,28 +38,23 @@ export const activities = [
     description: "프로젝트 전시 및 발표 참여, 서비스 소개 자료 제작, 시연 준비",
   },
   {
-    period: "2024.07 - 2024.11",
-    category: "근로장학생",
-    title: "도서관 사무보조",
-    description: "도서관 관리",
-  },
-  {
     period: "2024.07",
     category: "경진대회",
     title: "교내 경진대회",
     description: "환경 보호 앱 프로젝트 기획, 개발 참여 및 발표자료 작성",
   },
+];
+
+export const awards = [
   {
-    period: "2023 (6개월)",
-    category: "아르바이트",
-    title: "편의점",
-    description: "고객 응대, 계산 업무, 상품 정리 및 매장 관리",
+    period: "2024.05 - 2024.11",
+    title: "교내 EXPO 대상",
+    description: "Expo 컴퓨터 비전 AI — 손 재활 · 발달 플랫폼",
   },
   {
-    period: "2023 (3개월)",
-    category: "아르바이트",
-    title: "음식점",
-    description: "고객 응대, 주문·서빙, 매장 정리 및 위생 관리",
+    period: "2024.07",
+    title: "교내 경진대회 장려상",
+    description: "풀떼기 — 환경 보호 리워드 앱",
   },
 ];
 

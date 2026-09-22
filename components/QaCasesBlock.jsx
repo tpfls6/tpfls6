@@ -20,7 +20,7 @@ export default function QaCasesBlock({ qaCases }) {
                 qaCase[key] && (
                   <div key={key} className="qa-case-step">
                     <span className={`qa-case-label qa-case-label--${key}`}>{label}</span>
-                    <p className="qa-case-text">{qaCase[key]}</p>
+                    <div className="qa-case-text">{qaCase[key]}</div>
                     {j < STEPS.length - 1 && qaCase[STEPS[j + 1].key] && (
                       <span className="qa-case-arrow">↓</span>
                     )}

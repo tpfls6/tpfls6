@@ -9,52 +9,54 @@ export default function ScrollReveal() {
       '(prefers-reduced-motion: reduce)'
     ).matches;
 
+    const reveal = (el) => el.classList.add('is-visible');
+
     const revealAll = () => {
-      document
-        .querySelectorAll('[data-reveal]:not(.is-visible)')
-        .forEach((el) => el.classList.add('is-visible'));
+      document.querySelectorAll('[data-reveal]').forEach(reveal);
     };
 
     if (prefersReducedMotion) {
       revealAll();
+      document.documentElement.classList.add('reveal-on');
       const mutationObserver = new MutationObserver(revealAll);
       mutationObserver.observe(document.body, { childList: true, subtree: true });
-      return () => mutationObserver.disconnect();
+      return () => {
+        mutationObserver.disconnect();
+        document.documentElement.classList.remove('reveal-on');
+      };
     }
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
+            reveal(entry.target);
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+      { threshold: 0.06, rootMargin: '0px 0px -40px 0px' }
     );
 
-    // 라우트 이동뿐 아니라 탭 전환처럼 페이지 이동 없이 새로 렌더링되는
-    // [data-reveal] 요소도 놓치지 않도록 DOM 변화를 계속 감시합니다.
-    const observeNewTargets = () => {
-      document
-        .querySelectorAll('[data-reveal]:not(.is-visible)')
-        .forEach((el) => {
-          if (!el.dataset.revealObserved) {
-            el.dataset.revealObserved = 'true';
-            observer.observe(el);
-          }
-        });
+    const sync = () => {
+      document.querySelectorAll('[data-reveal]:not(.is-visible)').forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
+        if (inView) reveal(el);
+        else observer.observe(el);
+      });
     };
 
-    observeNewTargets();
+    sync();
+    document.documentElement.classList.add('reveal-on');
 
-    const mutationObserver = new MutationObserver(observeNewTargets);
+    const mutationObserver = new MutationObserver(sync);
     mutationObserver.observe(document.body, { childList: true, subtree: true });
 
     return () => {
       observer.disconnect();
       mutationObserver.disconnect();
+      document.documentElement.classList.remove('reveal-on');
     };
   }, []);
 

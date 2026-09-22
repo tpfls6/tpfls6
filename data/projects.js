@@ -3,32 +3,35 @@
 // 새 프로젝트를 추가하는 방법:
 // 1) 아래 projects 배열에 객체 하나를 추가한다 (id/slug는 폴더명과 동일하게).
 // 2) public/projects/<slug>/ 폴더에 이미지를 넣는다.
-// 3) media 배열에 {src, title, description, section} 형태로 사진을 연결한다.
-//    section 값에 따라 상세 페이지의 해당 케이스 스터디 섹션 안에서 자동으로 노출된다.
-//    (overview / problem / planning / development / qa / result / architecture)
+// 3) media 배열에 {src, title, description, section, kind} 형태로 사진을 연결한다.
+//    kind (없으면 section에서 추론):
+//      hero | ui | flow | beforeAfter | architecture
+//    section: overview / problem / planning / development / qa / result / architecture
+// 4) 필요하면 images: { hero, ui:[], flow:[], beforeAfter:[], architecture:[] } 로 직접 지정.
 // 그 외 컴포넌트나 페이지 코드는 수정할 필요가 없다.
 
-export const ARCHIVE_FILTERS = [
-  "ALL",
-  "DEVELOPMENT",
-  "PLANNING",
-  "PM",
-  "AI",
-  "WEB",
-  "MOBILE",
-  "ETC",
-];
-
 const img = (slug, file) => `/projects/${slug}/${file}`;
+
+const SECTION_KIND = {
+  overview: "ui",
+  development: "ui",
+  result: "ui",
+  planning: "flow",
+  architecture: "architecture",
+  qa: "beforeAfter",
+  problem: "flow",
+};
 
 export const projects = [
   {
     id: "stockmate",
     slug: "stockmate",
     featured: true,
-    tags: ["DEVELOPMENT", "PM", "AI", "WEB"],
+    theme: "finance",
+    order: { planner: 1, developer: 1 },
+    tags: ["PLANNING", "FRONTEND", "BACKEND", "QA", "AI"],
     title: "StockMate",
-    tagline: "AI 기반 주식 학습 · 모의투자 플랫폼",
+    tagline: "주식 초보자를 위한 AI 투자 학습 · 모의투자 플랫폼",
     period: "2026.03.02 - 2026.11.25 진행 중",
     status: "진행중",
     team: "3인 팀 (팀장 · 프론트엔드 1 · 백엔드 1 · AI 1)",
@@ -178,7 +181,9 @@ export const projects = [
     id: "iris",
     slug: "iris",
     featured: true,
-    tags: ["DEVELOPMENT", "PLANNING", "AI", "ETC"],
+    theme: "terminal",
+    order: { planner: 3, developer: 2 },
+    tags: ["PLANNING", "FRONTEND", "QA", "AI"],
     title: "IRIS",
     tagline: "로컬·클라우드 AI 모델과 UI 제어를 결합한 데스크톱 AI 에이전트 / IDE",
     period: "2026.08 - 진행 중",
@@ -252,7 +257,9 @@ export const projects = [
     id: "jewelry",
     slug: "jewelry",
     featured: true,
-    tags: ["DEVELOPMENT", "PLANNING", "ETC"],
+    theme: "ledger",
+    order: { planner: 2, developer: 3 },
+    tags: ["PLANNING", "FRONTEND", "BACKEND", "QA"],
     title: "Jewelry Factory Management System",
     tagline: "주얼리 공장의 입·출고, 중량 측정, 사진 기록, 대장 관리를 위한 데스크톱 관리 프로그램",
     period: "2026.08 - 진행 중",
@@ -325,8 +332,10 @@ export const projects = [
   {
     id: "re-route",
     slug: "reroute",
-    featured: true,
-    tags: ["DEVELOPMENT", "PLANNING", "AI", "WEB"],
+    featured: false,
+    theme: "default",
+    order: { planner: 5, developer: 4 },
+    tags: ["PLANNING", "BACKEND", "QA", "AI"],
     title: "Re-Route",
     tagline: "AI 기반 회복탄력성 지원 플랫폼",
     period: "2026.05.02 - 2026.06.17",
@@ -451,7 +460,9 @@ export const projects = [
     id: "expo",
     slug: "expo",
     featured: false,
-    tags: ["DEVELOPMENT", "PLANNING", "WEB", "ETC"],
+    theme: "default",
+    order: { planner: 6, developer: 8 },
+    tags: ["PLANNING", "FRONTEND"],
     title: "Expo 컴퓨터 비전 AI",
     tagline: "손 재활 · 발달 플랫폼 프로젝트",
     period: "2024.06 - 2024.10",
@@ -501,7 +512,9 @@ export const projects = [
     id: "el-winter",
     slug: "feed-coder",
     featured: false,
-    tags: ["DEVELOPMENT", "WEB"],
+    theme: "default",
+    order: { planner: 8, developer: 7 },
+    tags: ["FRONTEND"],
     title: "Feed Coder",
     tagline: "개발자 커뮤니티 플랫폼",
     period: "2025.01 - 2025.02",
@@ -543,7 +556,9 @@ export const projects = [
     id: "contest-app",
     slug: "pulteogi",
     featured: false,
-    tags: ["DEVELOPMENT", "PLANNING", "MOBILE"],
+    theme: "default",
+    order: { planner: 7, developer: 6 },
+    tags: ["PLANNING", "FRONTEND", "BACKEND", "QA"],
     title: "풀떼기",
     tagline: "환경 보호 리워드 앱",
     period: "2024.07 - 2024.09",
@@ -645,7 +660,9 @@ export const projects = [
     id: "25-hanium-navis",
     slug: "navis",
     featured: false,
-    tags: ["DEVELOPMENT", "PLANNING", "PM", "WEB"],
+    theme: "default",
+    order: { planner: 4, developer: 5 },
+    tags: ["PLANNING", "FRONTEND", "QA"],
     title: "Navis",
     tagline: "AI 기반 애자일 프로젝트 관리 솔루션 (한이음 프로젝트)",
     period: "2025.03.02 - 2025.11.02",
@@ -775,15 +792,76 @@ export const projects = [
   },
 ];
 
-export function getFeaturedProjects() {
-  return projects.filter((p) => p.featured);
+function byViewOrder(list, view) {
+  const key = view === "developer" ? "developer" : "planner";
+  return [...list].sort((a, b) => (a.order?.[key] ?? 99) - (b.order?.[key] ?? 99));
+}
+
+export function getFeaturedProjects(view) {
+  return byViewOrder(projects.filter((p) => p.featured), view);
+}
+
+export function getArchiveProjects(view) {
+  return byViewOrder(projects.filter((p) => !p.featured), view);
+}
+
+export function getAllProjects(view) {
+  return byViewOrder(projects, view);
 }
 
 export function getProjectBySlug(slug) {
   return projects.find((p) => p.slug === slug);
 }
 
-export function getProjectsByFilter(filter) {
-  if (!filter || filter === "ALL") return projects;
-  return projects.filter((p) => p.tags.includes(filter));
+export function getProjectYear(project) {
+  const match = project.period.match(/(\d{4})/);
+  return match ? match[1] : "";
+}
+
+export function getProjectStartLabel(project) {
+  const match = project.period.match(/(\d{4})(?:[.](\d{2}))?/);
+  if (!match) return "";
+  return match[2] ? `${match[1]}.${match[2]}` : match[1];
+}
+
+function periodKey(period) {
+  const match = String(period).match(/(\d{4})(?:[.](\d{2}))?(?:[.](\d{2}))?/);
+  if (!match) return 0;
+  return Number(`${match[1]}${match[2] || "00"}${match[3] || "00"}`);
+}
+
+export function getTimelineProjects(view, all = false) {
+  const list = all ? getAllProjects(view) : getArchiveProjects(view);
+  return [...list].sort((a, b) => periodKey(b.period) - periodKey(a.period));
+}
+
+export function getProjectImages(project) {
+  const media = project.media || [];
+  const byKind = (kind) =>
+    media.filter((item) => (item.kind || SECTION_KIND[item.section] || "ui") === kind);
+
+  const explicit = project.images || {};
+  return {
+    hero: explicit.hero || project.cover || "",
+    ui: explicit.ui || byKind("ui"),
+    flow: explicit.flow || byKind("flow"),
+    beforeAfter: explicit.beforeAfter || byKind("beforeAfter"),
+    architecture: explicit.architecture || byKind("architecture"),
+    all: media,
+  };
+}
+
+export function getJourneyGroups() {
+  const groups = {};
+  for (const project of projects) {
+    const year = getProjectYear(project);
+    if (!groups[year]) groups[year] = [];
+    groups[year].push(project);
+  }
+  return Object.entries(groups)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([year, items]) => ({
+      year,
+      items: [...items].sort((a, b) => a.period.localeCompare(b.period)),
+    }));
 }
