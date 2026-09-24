@@ -47,6 +47,11 @@ export const activities = [
 
 export const awards = [
   {
+    period: "2025.11",
+    title: "한이음 장려상",
+    description: "한국정보산업연합회",
+  },
+  {
     period: "2024.05 - 2024.11",
     title: "교내 EXPO 대상",
     description: "Expo 컴퓨터 비전 AI — 손 재활 · 발달 플랫폼",

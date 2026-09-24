@@ -832,7 +832,9 @@ function periodKey(period) {
 
 export function getTimelineProjects(view, all = false) {
   const list = all ? getAllProjects(view) : getArchiveProjects(view);
-  return [...list].sort((a, b) => periodKey(b.period) - periodKey(a.period));
+  return [...list]
+    .filter((p) => p.slug !== "feed-coder")
+    .sort((a, b) => periodKey(b.period) - periodKey(a.period));
 }
 
 export function getProjectImages(project) {

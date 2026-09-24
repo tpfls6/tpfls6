@@ -26,13 +26,8 @@ export default function Problems() {
             </li>
           ))}
         </ol>
-        <p className="sm-direction-flow" data-reveal>
-          <span className="sm-direction-arrow" aria-hidden="true">
-            <svg viewBox="0 0 80 32" fill="currentColor">
-              <path d="M0 8h46V2.2L78 16 46 29.8V24H0z" />
-            </svg>
-          </span>
-          <span className="sm-direction-box">{direction}</span>
+        <p className="sm-direction-box" data-reveal>
+          {direction}
         </p>
       </div>
     </section>

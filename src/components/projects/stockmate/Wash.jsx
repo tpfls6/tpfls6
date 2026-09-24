@@ -1,6 +1,11 @@
 const PALETTES = {
   stockmate: ['#c9b6e4', '#d4c4f0', '#b8c4ee'],
   jewelry: ['#e8c39a', '#f0b7a0', '#efb7a3'],
+  iris: ['#c5b8ea', '#c8d0f2', '#b8c4ee'],
+  reroute: ['#9ed4c2', '#c9eadf', '#b7ddd4'],
+  navis: ['#8fb7de', '#c5daf0', '#b9d0ea'],
+  pulteogi: ['#b7d7a8', '#d4e8c8', '#c5ddb4'],
+  expo: ['#c9b6e4', '#e7c4d4', '#d4c4f0'],
 };
 
 export default function Wash({ className, seed, tone = 'stockmate' }) {

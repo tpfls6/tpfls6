@@ -4,13 +4,15 @@ import RoleBlock from './stockmate/RoleBlock';
 import Wash from './stockmate/Wash';
 import './stockmate/StockMateCase.css';
 
-export default function CaseHero({ data, tone = 'stockmate', onOpen }) {
-  const { title, headline, desc, facts = [], detailRoleTags, shots } = data;
+const WASH_SEED = { jewelry: '8', iris: '5', reroute: '7', navis: '4', pulteogi: '6', expo: '9' };
+
+export default function CaseHero({ data, tone = 'stockmate', backHref = '/#selected', onOpen }) {
+  const { title, headline, desc, facts = [], detailRoleTags, shots = [] } = data;
 
   return (
     <section className={`sm-hero sm-hero--${tone}`}>
-      <Wash className="sm-wash sm-wash--hero" seed={tone === 'jewelry' ? '8' : '3'} tone={tone} />
-      <Link href="/#selected" className="sm-back" aria-label="프로젝트 목록으로">
+      <Wash className="sm-wash sm-wash--hero" seed={WASH_SEED[tone] || '3'} tone={tone} />
+      <Link href={backHref} className="sm-back" aria-label="프로젝트 목록으로">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path
             d="M19 12H5M12 19l-7-7 7-7"
@@ -39,7 +41,9 @@ export default function CaseHero({ data, tone = 'stockmate', onOpen }) {
           <RoleBlock tags={detailRoleTags} />
         </div>
 
-        <div className={`sm-hero-visual${shots.length === 2 ? ' is-2' : ''}`}>
+        <div
+          className={`sm-hero-visual${shots.length === 2 ? ' is-2' : ''}${shots.some((shot) => shot.tall) ? ' is-tall' : ''}`}
+        >
           {shots.map((shot, i) => (
             <button
               type="button"

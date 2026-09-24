@@ -1,8 +1,8 @@
 import { Fragment } from 'react';
-import { JEWELRY_PROBLEM } from '@/data/jewelry';
+import { IRIS_PROBLEM } from '@/data/iris';
 
 export default function Problems() {
-  const { title, items, direction } = JEWELRY_PROBLEM;
+  const { title, items, direction } = IRIS_PROBLEM;
 
   return (
     <section className="sm-block sm-problems">
