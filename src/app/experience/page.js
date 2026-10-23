@@ -13,10 +13,10 @@ const contexts = {
 };
 
 const capabilities = [
-  ['문제 분석', '복잡한 문제를 원인과 업무 흐름으로 나누어 분석하고, 해결할 핵심과 우선순위 정리'],
-  ['해결 방법 탐색', '사용자 요구와 현장 상황에 맞는 방법을 비교하고, 실제 기능과 화면으로 구체화한 경험 보유'],
-  ['QA·개선', '화면 동작·API 응답·데이터 연동 오류를 점검하고, 원인 분석부터 수정·재검증까지 수행한 경험 보유'],
-  ['협업·일정 관리', 'GitHub와 Notion으로 일정과 진행 상황을 관리하고, 팀장으로서 역할 분담·회의록 작성·팀원 간 의견 조율 경험 보유'],
+  ['문제 분석', '복잡한 문제를 원인과 흐름으로 나누고, 핵심과 우선순위를 정리합니다.'],
+  ['해결 방법 탐색', '요구와 현장에 맞는 방법을 비교해, 실제 기능과 화면으로 구체화합니다.'],
+  ['QA·개선', '화면·API·데이터 연동을 점검하고, 원인 분석부터 수정·재검증까지 이어갑니다.'],
+  ['협업·일정 관리', 'GitHub와 Notion으로 일정을 관리하고, 역할 분담과 의견 조율을 이끕니다.'],
 ];
 
 export const metadata = { title: 'Experience · SERIN PARK' };
@@ -32,16 +32,15 @@ export default function ExperiencePage() {
         </header>
         <section className="core-capabilities" aria-labelledby="capabilities-title">
           <div className="resume-table-heading"><h2 id="capabilities-title">핵심역량</h2></div>
-          <div className="resume-table-frame">
-            <table className="capabilities-table">
-              <caption className="sr-only">핵심역량과 관련 경험</caption>
-              <tbody>
-                {capabilities.map(([title, description]) => (
-                  <tr key={title}><th scope="row">{title}</th><td>{description}</td></tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <ul className="capability-grid">
+            {capabilities.map(([title, description], index) => (
+              <li key={title}>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </li>
+            ))}
+          </ul>
         </section>
         <dl className="experience-metrics">
           {[['수상', awards.length], ['논문·공동저자', publications.length], ['자격증', certificates.length], ['기술·도구 분야', techStackGroups.length]].map(([label, count]) => <div key={label}><dt>{label}</dt><dd>{String(count).padStart(2, '0')}<span>{label === '기술·도구 분야' ? '개 분야' : '건'}</span></dd></div>)}
