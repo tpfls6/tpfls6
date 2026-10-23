@@ -105,7 +105,7 @@ export const featuredWorks = [
     slug: "jewelry",
     num: "01",
     name: "Jewelry Factory",
-    headline: "주얼리 공장 업무 관리 시스템",
+    headline: "현장 문제 분석 및 업무 프로세스 개선",
     desc: [
       "입·출고, 중량 측정, 사진 기록, 대장과 통계를",
       "하나의 흐름에서 관리할 수 있도록 설계했습니다.",
@@ -122,7 +122,7 @@ export const featuredWorks = [
     slug: "stockmate",
     num: "02",
     name: "StockMate",
-    headline: "AI 개인 맞춤형 투자 학습 및 모의투자 플랫폼",
+    headline: "사용자 요구사항 분석 및 서비스 기획",
     desc: [
       "사용자의 투자 성향과 학습 수준에 맞춘 콘텐츠를 제공하고,",
       "주식 특화 AI 분석과 모의투자를 통해 배운 내용을 직접 적용할 수 있도록 설계했습니다.",
@@ -140,10 +140,21 @@ export const featuredWorks = [
     flip: true,
   },
   {
-    slug: "iris",
+    slug: "blanky",
     num: "03",
-    name: "IRIS",
-    headline: "AI 기반 개발 지원 환경",
+    name: "Blanky",
+    headline: "AI 기반 신규 서비스 기획 및 개인화 UX 설계",
+    desc: ["일정과 기록이 여러 도구에 흩어지는 문제에서 출발해,", "자연어 입력과 개인화 워크스페이스로 통합 관리 경험을 설계하고 있습니다."],
+    tags: ["서비스 기획", "문제 정의", "AI 분류", "개인화 UX"],
+    core: ["일정·할 일·일기·독서 기록을 한 공간에 연결하고,", "구현된 기능과 후속 계획을 구분해 발전시키고 있습니다."],
+    images: ["/projects/blanky/schedule.png", "/projects/blanky/home.png"],
+    tone: "green",
+  },
+  {
+    slug: "iris",
+    num: "04",
+    name: "IRIS-Light",
+    headline: "사용자 경험 개선 및 기능 검증",
     desc: [
       "AI와 IDE를 연결해 프로젝트 탐색, 파일 작성,",
       "실행까지 이어질 수 있도록 설계한 개발 지원 도구입니다.",
@@ -155,6 +166,7 @@ export const featuredWorks = [
     ],
     images: ["/projects/iris/splash.jpg", "/projects/iris/workspace.jpg"],
     tone: "lilac",
+    flip: true,
   },
 ];
 

@@ -1,5 +1,5 @@
 import { certificates } from '@/data/certificates';
-import { education, activities, awards, trainings } from '@/data/history';
+import { education, activities, awards, publications, trainings } from '@/data/history';
 
 export default function CertificatesContent() {
   return (
@@ -16,9 +16,21 @@ export default function CertificatesContent() {
               <HistoryRow key={cert.id} period={cert.date} title={cert.name} desc={cert.issuer} />
             ))}
           </HistoryBlock>
-          <HistoryBlock title="Awards">
+          <HistoryBlock title="수상 및 논문">
+            <p className="history-group-label">수상</p>
             {awards.map((item) => (
               <HistoryRow key={item.title} period={item.period} title={item.title} desc={item.description} />
+            ))}
+            {publications.map((item) => (
+              <div className="publication-group" key={item.title}>
+                <p className="history-group-label">{item.category}</p>
+                <HistoryRow
+                  period={item.period}
+                  title={item.title}
+                  desc={item.publication}
+                  project={item.project}
+                />
+              </div>
             ))}
           </HistoryBlock>
           <HistoryBlock title="Education">
@@ -67,7 +79,7 @@ function HistoryBlock({ title, wide, children }) {
   );
 }
 
-function HistoryRow({ period, title, desc, chip }) {
+function HistoryRow({ period, title, desc, chip, project }) {
   return (
     <div className="history-row">
       <span className="history-period">{period}</span>
@@ -81,6 +93,7 @@ function HistoryRow({ period, title, desc, chip }) {
           <p className="history-row-title">{title}</p>
         )}
         {desc ? <p className="history-row-desc">{desc}</p> : null}
+        {project ? <p className="history-row-desc">관련 프로젝트: {project}</p> : null}
       </div>
     </div>
   );

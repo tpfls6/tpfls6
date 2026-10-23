@@ -1,7 +1,7 @@
 const img = (file) => `/projects/iris/${file}`;
 
 export const IRIS_HERO = {
-  title: "IRIS",
+  title: "IRIS-Light",
   headline: "오픈소스 기반 확장형 AI Agent 및 IDE 환경",
   desc: "AI Agent 사용 비용의 부담을 낮추고, MCP·Skill·오픈소스 도구를 연결해 사용자의 목적에 맞게 확장할 수 있도록 설계한 AI 활용 환경입니다. 개발자에게는 프로젝트 탐색, 파일 수정, 실행 등의 IDE 작업을 연결합니다.",
   facts: [

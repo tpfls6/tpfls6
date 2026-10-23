@@ -1,4 +1,5 @@
 const PALETTES = {
+  blanky: ['#bdd7c7', '#d5e6dc', '#a9c9b8'],
   stockmate: ['#c9b6e4', '#d4c4f0', '#b8c4ee'],
   jewelry: ['#e8c39a', '#f0b7a0', '#efb7a3'],
   iris: ['#c5b8ea', '#c8d0f2', '#b8c4ee'],

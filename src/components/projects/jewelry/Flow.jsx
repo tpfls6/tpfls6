@@ -36,11 +36,12 @@ export default function Flow() {
           </div>
         </div>
 
-        <ol className="sm-pipeline sm-pipeline--long" data-reveal>
+        <ol className="jw-workflow" data-reveal>
           {steps.map((step, i) => (
-            <li key={step}>
+            <li key={step.title}>
               <span className="sm-pipeline-num">{String(i + 1).padStart(2, '0')}</span>
-              <span className="sm-pipeline-label">{step}</span>
+              <h3>{step.title}</h3>
+              <p>{step.desc}</p>
             </li>
           ))}
         </ol>

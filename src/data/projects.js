@@ -24,11 +24,21 @@ const SECTION_KIND = {
 
 export const projects = [
   {
+    id: "blanky", slug: "blanky", featured: true, theme: "default",
+    order: { planner: 3, developer: 4 }, title: "Blanky",
+    tagline: "AI 기반 신규 서비스 기획 및 개인화 UX 설계",
+    period: "2026.10 — 진행 중", status: "진행중",
+    role: "Service Planning · UX/UI · Development", team: "개인 프로젝트",
+    tags: ["PLANNING", "UX", "AI"], techStack: ["React", "TypeScript", "Supabase"],
+    cover: "/projects/blanky/schedule.png", links: {}, media: [],
+    roleContent: { planner: { summary: "분산된 일정과 기록을 자연어 입력과 개인화 공간으로 연결하는 서비스 기획", points: ["사용자 문제 정의", "자연어 입력·분류 흐름 설계", "일정·기록 통합 관리", "개인화 워크스페이스 설계"] } },
+  },
+  {
     id: "stockmate",
     slug: "stockmate",
     featured: true,
     theme: "finance",
-    order: { planner: 1, developer: 1 },
+    order: { planner: 2, developer: 1 },
     tags: ["PLANNING", "FRONTEND", "BACKEND", "QA", "AI"],
     title: "StockMate",
     tagline: "주식 초보자를 위한 AI 투자 학습 · 모의투자 플랫폼",
@@ -182,9 +192,9 @@ export const projects = [
     slug: "iris",
     featured: true,
     theme: "terminal",
-    order: { planner: 3, developer: 2 },
+    order: { planner: 4, developer: 2 },
     tags: ["PLANNING", "FRONTEND", "QA", "AI"],
-    title: "IRIS",
+    title: "IRIS-Light",
     tagline: "로컬·클라우드 AI 모델과 UI 제어를 결합한 데스크톱 AI 에이전트 / IDE",
     period: "2026.08 - 진행 중",
     status: "진행중",
@@ -258,7 +268,7 @@ export const projects = [
     slug: "jewelry",
     featured: true,
     theme: "ledger",
-    order: { planner: 2, developer: 3 },
+    order: { planner: 1, developer: 3 },
     tags: ["PLANNING", "FRONTEND", "BACKEND", "QA"],
     title: "Jewelry Factory Management System",
     tagline: "주얼리 공장의 입·출고, 중량 측정, 사진 기록, 대장 관리를 위한 데스크톱 관리 프로그램",
@@ -288,7 +298,7 @@ export const projects = [
           "현장 담당자의 수기 대장 관리 방식을 분석해 디지털 워크플로로 전환했습니다.",
         points: [
           "문제 정의: 수기 대장으로 인한 입·출고 기록 누락과 조회 어려움",
-          "입고 → 중량 측정 → 사진 기록 → 대장 반영으로 이어지는 현장 흐름 설계",
+          "입고 → 단계별 작업 및 중량·사진 기록 → 출고 → 데이터 집계 및 관리로 이어지는 현장 흐름 설계",
           "현장에서 바로 쓸 수 있는 단순한 화면 구조(IA) 설계",
           "사용자(현장 담당자) 피드백을 반영한 화면 개선",
         ],
@@ -319,7 +329,7 @@ export const projects = [
         "수기 대장으로 입·출고를 관리하면서 기록 누락, 중량 오차, 사진 자료 분산 등의 문제가 반복되고 있었습니다.",
       myRole: "현장 요구사항 파악부터 화면 설계, 개발, QA까지 전 과정을 담당하고 있습니다.",
       planning:
-        "입고 → 중량 측정 → 사진 기록 → 대장 반영으로 이어지는 현장 작업 흐름을 정리하고 화면 구조를 설계했습니다.",
+        "입고 → 단계별 작업 및 중량·사진 기록 → 출고 → 데이터 집계 및 관리로 이어지는 현장 작업 흐름을 정리하고 화면 구조를 설계했습니다.",
       development:
         "PySide6로 데스크톱 UI를 구현하고, 전자저울과 Serial Communication으로 연동했으며, 로컬 DB와 Supabase를 함께 사용해 오프라인/온라인 데이터를 관리합니다.",
       result:

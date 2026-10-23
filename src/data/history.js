@@ -45,11 +45,21 @@ export const activities = [
   },
 ];
 
+export const publications = [
+  {
+    period: "2025",
+    category: "논문·공동저자",
+    title: "생성형 AI를 활용한 자동 스프린트 계획 및 프로젝트 관리 자동화 시스템",
+    publication: "2025 한국컴퓨터종합학술대회 논문집, pp. 1940–1942",
+    project: "NAVIS",
+  },
+];
+
 export const awards = [
   {
     period: "2025.11",
-    title: "한이음 장려상",
-    description: "한국정보산업연합회",
+    title: "2025년 한이음 드림업(ICT멘토링) 공모전 창의도전형 장려상",
+    description: "과학기술정보통신부",
   },
   {
     period: "2024.05 - 2024.11",
@@ -58,7 +68,7 @@ export const awards = [
   },
   {
     period: "2024.07",
-    title: "교내 경진대회 장려상",
+    title: "2024학년도 프로젝트 경진대회 장려상",
     description: "풀떼기 — 환경 보호 리워드 앱",
   },
 ];

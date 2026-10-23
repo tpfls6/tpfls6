@@ -1,9 +1,9 @@
-import MoreWorks from '@/components/home/MoreWorks';
+import ProjectGallery from '@/components/projects/ProjectGallery';
 
 export default function ProjectsPage() {
   return (
-    <main className="page">
-      <MoreWorks all />
+    <main className="page page--portfolio-overview">
+      <ProjectGallery />
     </main>
   );
 }

@@ -56,8 +56,8 @@ export const VIEW_META = {
     developerRole: "Desktop Development · Data",
     plannerFlow: [
       ["IN", "입고"],
-      ["MEASURE", "중량 측정"],
-      ["PHOTO", "사진 기록"],
+      ["WORK", "단계별 작업·중량·사진 기록"],
+      ["OUT", "출고·최종 중량 확인"],
       ["LEDGER", "대장 반영"],
     ],
     developerFlow: [
@@ -93,7 +93,7 @@ export const VIEW_META = {
     },
   },
   iris: {
-    displayTitle: "IRIS",
+    displayTitle: "IRIS-Light",
     type: "Personal Project",
     cardLine: "로컬·클라우드 AI 모델과 UI 제어를 결합한 데스크톱 AI 에이전트 / IDE",
     plannerRole: "Product UX · Feature Planning",

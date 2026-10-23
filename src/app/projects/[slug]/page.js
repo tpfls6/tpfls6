@@ -4,6 +4,7 @@ import MoreCase from '@/components/projects/MoreCase';
 import IrisCase from '@/components/projects/iris/IrisCase';
 import JewelryCase from '@/components/projects/jewelry/JewelryCase';
 import StockMateCase from '@/components/projects/stockmate/StockMateCase';
+import BlankyCase from '@/components/projects/BlankyCase';
 import { getMoreCase } from '@/data/moreCases';
 import { getProjectBySlug, projects } from '@/data/projects';
 
@@ -17,7 +18,7 @@ export default async function ProjectDetailPage({ params }) {
   if (!project) notFound();
 
   const more = getMoreCase(project.slug);
-  const caseSlug = ['stockmate', 'jewelry', 'iris'].includes(project.slug) || more;
+  const caseSlug = ['stockmate', 'jewelry', 'iris', 'blanky'].includes(project.slug) || more;
 
   return (
     <main className={`page page--case${caseSlug ? ` page--${project.slug}` : ''}`}>
@@ -27,6 +28,8 @@ export default async function ProjectDetailPage({ params }) {
         <JewelryCase />
       ) : project.slug === 'iris' ? (
         <IrisCase />
+      ) : project.slug === 'blanky' ? (
+        <BlankyCase />
       ) : more ? (
         <MoreCase data={more} />
       ) : (

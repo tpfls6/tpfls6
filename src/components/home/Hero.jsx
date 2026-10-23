@@ -32,7 +32,6 @@ export default function Hero() {
         <div className="cover-copy">
           <p className="cover-identity">
             <span className="cover-name">{profile.name}</span>
-            <span className="cover-role">{heroCopy.role}</span>
           </p>
           <h1 className="cover-title">
             {heroCopy.lines.map((line) => (
@@ -45,7 +44,6 @@ export default function Hero() {
             {heroCopy.intro[1]}
           </p>
         </div>
-
         <figure className="cover-photo">
           <div className="cover-photo-frame">
             <span>PHOTO</span>

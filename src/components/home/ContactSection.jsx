@@ -1,4 +1,4 @@
-import { contactCopy, heroCopy, profile } from '@/data/site';
+import { contactCopy, profile } from '@/data/site';
 
 const LINKS = [
   { label: 'Email', href: `mailto:${profile.email}` },
@@ -7,7 +7,7 @@ const LINKS = [
 ];
 
 export default function ContactSection() {
-  const who = `${profile.name} · ${heroCopy.role}`;
+  const who = profile.name;
 
   return (
     <section id="contact" className="close">

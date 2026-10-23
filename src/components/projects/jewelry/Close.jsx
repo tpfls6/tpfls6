@@ -32,8 +32,8 @@ export default function Close() {
             <div key={step} className="jw-path-item">
               {i > 0 ? (
                 <span className="jw-path-arrow" aria-hidden="true">
-                  <svg viewBox="0 0 108 32" fill="currentColor">
-                    <path d="M0 8h72V2.2L106 16 72 29.8V24H0z" />
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M3 12h17m-5-5 5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
               ) : null}

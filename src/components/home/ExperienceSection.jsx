@@ -1,4 +1,4 @@
-import { education, activities, awards, trainings } from '@/data/history';
+import { education, activities, awards, publications, trainings } from '@/data/history';
 import { certificates } from '@/data/certificates';
 import { experienceCopy } from '@/data/site';
 
@@ -33,6 +33,7 @@ export default function ExperienceSection() {
         </header>
 
         <div className="exp-layout">
+          <div className="exp-column">
           <ExpBlock title="학력" tone="blue">
             <ul className="exp-items">
               {[...education].sort(byLatest).map((edu, index) => (
@@ -47,6 +48,35 @@ export default function ExperienceSection() {
             </ul>
           </ExpBlock>
 
+          <ExpBlock title="수상 및 논문" tone="lilac">
+            <p className="history-group-label">수상</p>
+            <ul className="exp-items">
+              {[...awards].sort(byLatest).map((item) => (
+                <ExpItem
+                  key={item.title}
+                  period={yearOnly(item.period)}
+                  title={item.title}
+                  desc={item.description}
+                  compact
+                />
+              ))}
+            </ul>
+            {publications.map((item) => (
+              <div className="publication-group" key={item.title}>
+                <p className="history-group-label">{item.category}</p>
+                <ul className="exp-items">
+                  <ExpItem
+                    period={item.period}
+                    title={item.title}
+                    lines={[item.publication, `관련 프로젝트: ${item.project}`]}
+                    compact
+                  />
+                </ul>
+              </div>
+            ))}
+          </ExpBlock>
+          </div>
+          <div className="exp-column">
           <ExpBlock title="경력 및 활동" tone="peach">
             <ul className="exp-items">
               {[
@@ -78,20 +108,6 @@ export default function ExperienceSection() {
             </ul>
           </ExpBlock>
 
-          <ExpBlock title="수상" tone="lilac">
-            <ul className="exp-items">
-              {[...awards].sort(byLatest).map((item) => (
-                <ExpItem
-                  key={item.title}
-                  period={yearOnly(item.period)}
-                  title={item.title}
-                  desc={item.description}
-                  compact
-                />
-              ))}
-            </ul>
-          </ExpBlock>
-
           <ExpBlock title="자격증" tone="mint">
             <ul className="exp-certs">
               {certificates.map((cert) => (
@@ -104,6 +120,7 @@ export default function ExperienceSection() {
               ))}
             </ul>
           </ExpBlock>
+          </div>
         </div>
       </div>
     </section>
