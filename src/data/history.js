@@ -50,8 +50,7 @@ export const publications = [
     period: "2025",
     category: "논문·공동저자",
     title: "생성형 AI를 활용한 자동 스프린트 계획 및 프로젝트 관리 자동화 시스템",
-    publication: "2025 한국컴퓨터종합학술대회 논문집, pp. 1940–1942",
-    project: "NAVIS",
+    publication: "한국컴퓨터종합학술대회 논문집, pp. 1940–1942",
   },
 ];
 
@@ -63,13 +62,13 @@ export const awards = [
   },
   {
     period: "2024.05 - 2024.11",
-    title: "교내 EXPO 대상",
-    description: "Expo 컴퓨터 비전 AI — 손 재활 · 발달 플랫폼",
+    title: "2024 KES 한국전자전 2024 동양미래EXPO 전시회 대상",
+    description: "동양미래대학교",
   },
   {
     period: "2024.07",
     title: "2024학년도 프로젝트 경진대회 장려상",
-    description: "풀떼기 — 환경 보호 리워드 앱",
+    description: "동양미래대학교",
   },
 ];
 

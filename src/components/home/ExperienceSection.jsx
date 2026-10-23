@@ -68,7 +68,7 @@ export default function ExperienceSection() {
                   <ExpItem
                     period={item.period}
                     title={item.title}
-                    lines={[item.publication, `관련 프로젝트: ${item.project}`]}
+                    desc={item.publication}
                     compact
                   />
                 </ul>

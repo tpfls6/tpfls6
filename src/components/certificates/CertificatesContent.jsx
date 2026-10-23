@@ -28,7 +28,6 @@ export default function CertificatesContent() {
                   period={item.period}
                   title={item.title}
                   desc={item.publication}
-                  project={item.project}
                 />
               </div>
             ))}

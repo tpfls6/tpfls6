@@ -10,7 +10,7 @@ const groups = [
     title: '수상 및 논문', tone: 'lilac',
     rows: [
       ...awards.map((item) => ({ ...item, category: '수상', details: [item.description] })),
-      ...publications.map((item) => ({ ...item, details: [item.publication, `관련 프로젝트: ${item.project}`] })),
+      ...publications.map((item) => ({ ...item, details: [item.publication] })),
     ],
   },
   {
