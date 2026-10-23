@@ -1,7 +1,5 @@
 import Link from 'next/link';
 import ExperienceTables from '@/components/profile/ExperienceTables';
-import { awards, publications } from '@/data/history';
-import { certificates } from '@/data/certificates';
 import { techStackGroups } from '@/data/site';
 
 const contexts = {
@@ -42,9 +40,6 @@ export default function ExperiencePage() {
             ))}
           </ul>
         </section>
-        <dl className="experience-metrics">
-          {[['수상', awards.length], ['논문·공동저자', publications.length], ['자격증', certificates.length], ['기술·도구 분야', techStackGroups.length]].map(([label, count]) => <div key={label}><dt>{label}</dt><dd>{String(count).padStart(2, '0')}<span>{label === '기술·도구 분야' ? '개 분야' : '건'}</span></dd></div>)}
-        </dl>
       </div>
       <ExperienceTables />
       <section className="toolkit-section" aria-labelledby="toolkit-title">

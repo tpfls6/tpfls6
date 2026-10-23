@@ -3997,13 +3997,6 @@ html:not(.reveal-on) .strength-wash {
   background-repeat: no-repeat;
 }
 .page--portfolio-overview > .portfolio-page { padding-top: 4.5rem; }
-.experience-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin: 0; }
-.experience-metrics > div { padding: 1.5rem; border: 1px solid var(--line); border-radius: 1rem; background: #fff; }
-.experience-metrics > div:nth-child(2) { background: #f4eff9; }
-.experience-metrics > div:nth-child(3) { background: #edf5f0; }
-.experience-metrics dt { color: var(--ink-3); font-size: .78rem; }
-.experience-metrics dd { font-size: 3rem; font-weight: 500; letter-spacing: -.06em; margin: .8rem 0 0; line-height: 1.2; }
-.experience-metrics dd span { margin-left: .5rem; font-size: .75rem; color: var(--ink-3); font-weight: 400; letter-spacing: 0; }
 .page--experience-overview .exp { background: transparent; }
 .page--experience-overview .exp { padding-top: 5rem; padding-bottom: 5rem; }
 .toolkit-section { background: color-mix(in srgb, var(--paper) 94%, var(--wash-mint)); border-top: 1px solid var(--line); }
@@ -4047,9 +4040,6 @@ html:not(.reveal-on) .strength-wash {
   .project-gallery { grid-template-columns: 1fr; }
   .gallery-image { aspect-ratio: 16 / 10; padding: 1.2rem; }
   .portfolio-next { flex-direction: column; align-items: start; gap: .7rem; }
-  .experience-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
-  .experience-metrics > div { padding: 1.2rem; }
-  .experience-metrics dd { font-size: 2.5rem; }
   .toolkit-head { flex-direction: column; align-items: start; gap: .5rem; }
   .toolkit-table thead { display: none; }
   .toolkit-table tr { display: block; border-bottom: 1px solid var(--line); padding: 1.3rem; }
