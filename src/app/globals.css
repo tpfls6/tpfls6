@@ -4098,10 +4098,6 @@ html:not(.reveal-on) .strength-wash {
 .core-capabilities { margin: 0 0 2rem; --resume-color: #568569; }
 .capability-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .85rem; }
 .capability-grid li { margin: 0; padding: 1.15rem 1.25rem 1.3rem; border: 1px solid var(--line); border-radius: 1rem; background: #fff; }
-.capability-grid li:nth-child(1) { background: #edf4fa; border-color: #d6e5f1; }
-.capability-grid li:nth-child(2) { background: #fcf1eb; border-color: #f0dfd5; }
-.capability-grid li:nth-child(3) { background: #edf5f0; border-color: #d6e7dc; }
-.capability-grid li:nth-child(4) { background: #f4eff9; border-color: #e4d9ef; }
 .capability-grid span { display: block; font-size: .68rem; font-weight: 650; letter-spacing: .12em; color: var(--ink-3); margin: 0 0 .4rem; }
 .capability-grid h3 { margin: 0; font-size: 1.05rem; font-weight: 600; letter-spacing: -.03em; }
 .capability-grid p { margin: .4rem 0 0; font-size: .82rem; line-height: 1.65; color: var(--ink-2); word-break: keep-all; }
